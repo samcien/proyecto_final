@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Citas Dentista</title>
+</head>
+<body>
+    <h1>Registrar Citas Dentista</h1>
+
+    <h2>Agendar Cita</h2>
+    <form method="post" action="/agregar_cita">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required><br>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora" required><br>
+        <input type="submit" value="Agendar Cita">
+    </form>
+
+    <h2>Citas Agendadas</h2>
+    <ul>
+        {% for cita in citas %}
+            <li>{{ cita.nombre }} - {{ cita.fecha }} a las {{ cita.hora }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
